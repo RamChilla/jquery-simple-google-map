@@ -2,41 +2,40 @@
 {% include _atf.scss %}
 {% endcapture %}
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 145 | escape }}">
-<style>{{ styles | scssify }}</style>
-<link rel="preload" href="{{ site.github.url | append:"/assets/css/site.css" | relative_url }}" as="style" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ site.github.url | append:"/assets/css/site.css" | relative_url  }}"></noscript>
-<link rel="canonical" href="{{ site.github.url | append: page.url | replace:'index.html','' | absolute_url }}">
-<link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ site.github.url | append:"/feed.xml" | relative_url}}">
-<link rel="shortcut icon" href="{{ site.github.url | append:"/assets/img/favicon.png" | relative_url }}" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 145 | escape }}">
+    <style>{{ styles | scssify }}</style>
+    <link rel="preload" href="{{ site.github.url | append:"/assets/css/site.css" | relative_url }}" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ site.github.url | append:"/assets/css/site.css" | relative_url  }}"></noscript>
+    <link rel="canonical" href="{{ site.github.url | append: page.url | replace:'index.html','' | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ site.github.url | append:"/feed.xml" | relative_url}}">
+    <link rel="shortcut icon" href="{{ site.github.url | append:"/assets/img/favicon.png" | relative_url }}" type="image/x-icon">
 
-<!-- Open Graph -->
-<meta property="og:locale" content="en_US">
-<meta property="og:type" content="article">
-<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
-<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 145 | escape }}">
-<meta property="og:url" content="{{ site.github.url | append: page.url | absolute_url }}">
-<meta property="og:siteName" content="jQuery Simple Google Maps">
-<meta property="og:image" content="http://sgm.ramihassan.net/bl-content/uploads/sgm.png">
-<!-- Twitter Card -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:site" content="@realramchilla">
-<meta property="twitter:creator" content="@realramchilla">
-<meta property="twitter:image" content="http://sgm.ramihassan.net/bl-content/uploads/sgm.png">
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 145 | escape }}">
+    <meta property="og:url" content="{{ site.github.url | append: page.url | absolute_url }}">
+    <meta property="og:siteName" content="jQuery Simple Google Maps">
+    <meta property="og:image" content="http://sgm.ramihassan.net/bl-content/uploads/sgm.png">
+    
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@realramchilla">
+    <meta property="twitter:creator" content="@realramchilla">
+    <meta property="twitter:image" content="http://sgm.ramihassan.net/bl-content/uploads/sgm.png">
 
-{% if page.load_sgm %}
-<!-- <script src="{{ site.github.url | append: "/assets/js/jquery/jquery.js" | relative_url }}"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="{{ site.baseurl }}/simple-google-maps/jquery.simpleMap.js"></script>
-<script>$.fn.simpleMap.defaults.googleApiKey = 'AIzaSyD1YrMciwwLqv0jdVt8-oTMhEhuIh9dh_0';</script>
-{% endif %}
+    {%- if page.load_sgm -%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/simple-google-maps/jquery.simpleMap.js"></script>
+    <script>$.fn.simpleMap.defaults.googleApiKey = 'AIzaSyD1YrMciwwLqv0jdVt8-oTMhEhuIh9dh_0';</script>
+    {%- endif -%}
 
-{% if jekyll.environment == 'production' and site.google_analytics %}
-{% include ga.html %}
-{% endif %}
+    {% if jekyll.environment == 'production' and site.google_analytics %}
+    {%- include ga.html -%}
+    {% endif %}
 </head>
-

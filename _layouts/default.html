@@ -11,11 +11,11 @@
                 </div>
                 <div class="eight columns text-right">
                     <ul>
-                        {% assign pages = site.pages | sort: 'menuSort'  %}
-                        {% for doc in pages %}
+                        {%- assign pages = site.pages | sort: 'menuSort'  -%}
+                        {%- for doc in pages -%}
                         {% if doc.menuTitle %}
                         <li><a href="{{ doc.url | relative_url }}">{{ doc.menuTitle }}</a></li>
-                        {% endif %}
+                        {%- endif -%}
                         {% endfor %}
                     </ul>
                 </div>
@@ -40,16 +40,12 @@
         </div>
     </footer>
 
-    {% unless page.load_sgm %}
-    <!-- <script src="{{ site.github.url | append:"/assets/js/jquery/jquery.js" | relative_url }}"></script> -->
+    {%- unless page.load_sgm -%}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    {% endunless %}
-
-    <!-- <script defer src="https://use.fontawesome.com/24796bde0a.js"></script> -->
+    {%- endunless -%}
     <script defer src="{{ site.baseurl }}/assets/js/loadCss.js"></script>
     <script src="{{ site.baseurl }}/assets/js/prism.js"></script>
     <script src="{{ site.baseurl }}/assets/js/stickyfill.min.js"></script>
-
 	<script>
         $(document).ready( function() {
 
