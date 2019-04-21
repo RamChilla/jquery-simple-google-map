@@ -19,7 +19,7 @@ description: > # this means to ignore newlines until "baseurl:"
   A lightweight jQuery Plugin that easily and quickly implements a simple Google Map.
 tagline: The simplest, fastest way to implement a Google Map.
 baseurl: "/jquery-simple-maps" # the subpath of your site, e.g. /blog
-# url: "https://ramchilla.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://ramchilla.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: RealRamchilla
 #github_username:  Ramchilla
 permalink: /post/:categories/:title/

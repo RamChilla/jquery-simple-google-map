@@ -7,14 +7,14 @@
         <div class="container">
             <nav class="row nav">
                 <div class="four columns logo">
-                    <a href="{{ site.github.url | relative_url }}">{{ site.title }}</a>
+                    <a href="{{ site.baseurl | append: '/' }}">{{ site.title }}</a>
                 </div>
                 <div class="eight columns text-right">
                     <ul>
                         {% assign pages = site.pages | sort: 'menuSort'  %}
                         {% for doc in pages %}
                         {% if doc.menuTitle %}
-                        <li><a href="{{ site.github.url | append: doc.url | relative_url }}">{{ doc.menuTitle }}</a></li>
+                        <li><a href="{{ doc.url | relative_url }}">{{ doc.menuTitle }}</a></li>
                         {% endif %}
                         {% endfor %}
                     </ul>
@@ -46,9 +46,9 @@
     {% endunless %}
 
     <!-- <script defer src="https://use.fontawesome.com/24796bde0a.js"></script> -->
-    <script defer src="{{ site.github.url }}/assets/js/loadCss.js"></script>
-    <script src="{{ site.github.url }}/assets/js/prism.js"></script>
-    <script src="{{ site.github.url }}/assets/js/stickyfill.min.js"></script>
+    <script defer src="{{ site.baseurl }}/assets/js/loadCss.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/prism.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/stickyfill.min.js"></script>
 
 	<script>
         $(document).ready( function() {
