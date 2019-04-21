@@ -1,0 +1,46 @@
+---
+layout: default
+title: Options
+description: A reference of all the options you can pass into jQuery Simple Google Maps.
+class: options
+menuTitle: Options
+menuSort: 9
+---
+
+<article id="options" class="container">
+        
+    <div class="row demo-row">
+        <h1>jQuery <i>Simple</i> Map Options</h1>
+        <p>Below are the possible options and their defaults.</p>
+<pre>
+    <code class="codeSample" data-language="javascript">
+var options = {
+    isApiLoaded: false, //bool:set to true if maps api loaded by other means
+    googleApiKey: "", //string: your Google API key
+    autoLoad: false, //gool: load the map (invoked on map container element)
+    useOverlay: false, //bool: use the built in overlay
+    overlayCloseText: "Close", //string: the close overlay text
+    transSpeed: 220, //int: overlay transition speed
+    mapElementId: "sm_panel", //string: the default map element id to draw to (not needed if useOverlay or autoLoad set to true)
+    theAddress: "Toledo, Ohio", //string: The default address
+    markerConfig : {
+        title: null, //string: the title of the marker as a string
+        icon: null //string: the URL of the marker icon as a string
+    },
+    infoWindowConfig: {
+        autoShow: false, //bool: auto show the map info window
+        maxWidth: 240, //int: set the info window max width
+        html: null//string or $(element).html(): The HTML to display in the info window
+    },
+    mapSetup: { //some basic Google Maps options
+        scrollwheel: true, //bool: enable disable scroll zooming on mousewheel
+        streetViewControl: false,//bool: enable street view controls UI
+        panControl: false, //bool: enable the pan controls UI
+        zoom: 10, //int: the map zoom level\
+    }
+}
+    </code>
+</pre>
+    </div>
+    
+</article>

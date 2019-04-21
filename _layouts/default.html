@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" class="{{ page.hunclass }}">
+{%- include head.html -%}
+<body class="{{ page.hunclass }} {{ page.class }}">
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="row nav">
+                <div class="four columns logo">
+                    <a href="/">{{ site.title }}</a>
+                </div>
+                <div class="eight columns text-right">
+                    <ul>
+                        {% assign pages = site.pages | sort: 'menuSort'  %}
+                        {% for doc in pages %}
+                        {% if doc.menuTitle %}
+                        <li><a href="{{ site.github.url | append: doc.url }}">{{ doc.menuTitle }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    {{ content }}
+
+    <footer class="row-dark">
+        <div class="container">
+            <div class="row demo-row">
+                <div class="six columns credits">
+                    <a class="social-icon" href="https://github.com/ramchilla"><i class="fa fa-github"></i></a>
+                    <a class="social-icon" href="https://twitter.com/realramchilla"><i class="fa fa-twitter"></i></a>
+                    <a href="http://www.ramihassan.net">Made by a web designer in Toledo, Ohio.</a>
+                </div>
+                <div class="six columns text-right">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    {% unless page.load_sgm %}
+    <script src="{{ "/assets/js/jquery/jquery.js" | relative_url }}"></script>
+    <script>var $ = jQuery;</script>
+    {% endunless %}
+
+    <!-- <script defer src="https://use.fontawesome.com/24796bde0a.js"></script> -->
+    <script defer src="{{ site.github.url }}/assets/js/loadCss.js"></script>
+    <script src="{{ site.github.url }}/assets/js/prism.js"></script>
+    <script src="{{ site.github.url }}/assets/js/stickyfill.min.js"></script>
+
+	<script>
+        $(document).ready( function() {
+
+            //site specific
+            $('script[data-type=demo]').each(function() {
+                var $this = $(this),
+                    theScript = $this.text(),
+                    formattedCode = Prism.highlight(theScript, Prism.languages.javascript);
+                $this.next('.seeTheCode').find('code').html(formattedCode);
+            });
+
+            $('.seeCode').one('click', function() {
+                var $theLevel = $(this).parents('.demo-row'),
+                    $theDestination = $theLevel.siblings('.seeTheCode'),
+                    section = $(this).data('section');
+                $(this).addClass('activated').text("Code Below");
+                $theDestination.fadeIn();
+                ga('send', 'event', 'Example Code', 'See Code Click', section);
+            });
+            
+            $('button[data-sm_address]').click(function(){
+                var id = $(this)[0].id;
+                if(!id) {
+                    id = 'multiLocation';
+                }
+                ga('send', 'event', 'Map Demo', 'Demo Example', id);
+            });
+
+            $('.codeSample').each( function() {
+                var $this = $(this),
+                    currentScript = $this.html(),
+                    currentLanguage = $this.data('language'),
+                    currFormattedScript = Prism.highlight(currentScript, Prism.languages[currentLanguage]);
+                $this.html(currFormattedScript);
+            });
+            
+            
+            var menuHtml = "";
+            $('.usage h2, .usage h3').each(function(index, value){
+                var text = $(this).text(),
+                    id = "section-"+index,
+                    html = '<li><a href="#'+id+'">'+text+'</a></li>';
+                
+                $(this).attr("id", id);
+                menuHtml += html;
+            });
+            $('#sidemenu').html(menuHtml);
+            $('#sidemenu a').click(function(e){
+                e.preventDefault();
+                var section = $(this).attr('href'),
+                    headerHeight = $('header').height();
+                $('html, body').animate({
+                    scrollTop: $(section).offset().top - headerHeight*1.5
+                }, 400)
+            });
+            $('.sidebar').Stickyfill();
+            
+
+        });
+    </script>
+</body>
+</html>

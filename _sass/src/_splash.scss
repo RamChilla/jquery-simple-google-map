@@ -1,0 +1,69 @@
+.splash {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    height: 100%;
+
+    @media screen and (max-width: $break-tablet-max) {
+        width: 90%;
+    }
+
+    .splash-inner {
+        display: flex;
+        flex-grow: 1;
+        padding: 4.8rem;
+
+        @media screen and (max-width: $break-tablet-max) {
+            padding: 3.2rem;
+            flex-direction: column;
+        }
+    }
+
+    .left {
+        margin: 0 6.4rem 0 0;
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: $break-tablet-max){
+            flex-direction: column;
+            margin: 0 0 3.2rem 0;
+        }
+        
+        img {
+            border-radius: 50% 50% 0 50%;
+            width: 25.6rem;
+        }
+    }
+
+    .right {
+        align-self: center;
+    }
+
+    h1 {
+        font-family: "Montserrat", "Open Sans", sans-serif;
+        font-weight: 900;
+        font-size: 6.4rem;
+        margin-top: 0;
+    }
+    h2 {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        margin: 0 0 3.2rem 0;
+    }
+
+    .umbraco-cd {
+        text-align: center;
+
+        img {
+            width: auto;
+            height: 48px;
+        }
+
+        a {
+            color: #000;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+---
+layout: single
+title: News
+description: Recent News and updates about jQuery Simple Map plugin.
+class: news
+menuTitle: News
+menuSort: 10
+redirect_from: "/post/"
+---
+    {% for post in site.posts %}
+        <article class="post">
+            <header class="header">
+                <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+                <p><time class="published" datetime="{{ post.date }}">{{ post.date | date: "%B %-d, %Y" }}</time> - {{ post.description }}</p>
+            </header>
+            {{ post.content }}
+        </article>
+    {% endfor %}

@@ -1,0 +1,136 @@
+---
+layout: default
+title: Usage
+description: How to use the jQuery Simple Maps Plugin.
+class: usage
+menuTitle: Usage
+menuSort: 5
+---
+<article id="usage" class="container">
+    <div class="row demo-row">
+        <div class="seven columns">
+            <h1>jQuery <i>Simple</i> Map Usage</h1>
+            <p>The plugin is designed to provide a quick way to implement a Google Map. Based on user interaction, it will geocode the address provided, and display the location on a map.</p>
+            <p><b>It is recommended</b> to invoke the plugin on a clickable element, such as a link or button. The focus of this plugin is to only execute on a user initiated request.</p>
+            <h3>Get an API key.</h3>
+            <p>Obtaining and using an API key is recommended. You can find out more about obtaining a Google API key by visiting <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">this link</a>.</p>
+            <p>Once you get your key, provide it the plugin before invoking the Simple Map Plugin. The following will apply your key directly to the plugin's defaults. Make sure to whitelist your domain, otherwise anyone can use your key, and eat up those precious requests.</p>
+<pre>
+    <code class="codeSample" data-language="javascript">
+$.fn.simpleMap.defaults.googleApiKey = 'your_key_here';
+    </code>
+</pre>
+            <h3>Include the assets.</h3>
+            <p>Just like any other jQuery plugin, load jQuery, then load the plugin. If you plan on using the overlay, load the stylesheet too.</p>
+            <h5 style="margin-bottom:0;">Load CSS <small>(if you plan on using the built-in overlay)</small></h5>
+            <pre>&lt;link rel="stylesheet" href="jquery-sm-style.css"&gt;</pre>
+            <h5 style="margin-bottom:0;">Load jQuery</h5>
+            <pre>&lt;script src="jquery.min.js">&lt;/script></pre>
+            <h5 style="margin-bottom:0;">Load Simple Maps</h5>
+            <pre>&lt;script src="jquery.simpleMap.js"&gt;&lt;/script&gt;</code></pre>
+            <h3>Initializing the plugin.</h3>
+            <p>The plugin may be initialized by invoking it on the target HTML element. Where <code>button</code> is the item that will trigger the map. Reference the ID of the html element that will contain the map. The <code>mapElementId</code> option is required to tell the plugin where to draw the map.</p>
+<pre>
+    <code class="codeSample" data-language="javascript">
+$('button').simpleMap({
+    mapElementId: 'your-map-element-id'
+});
+    </code>
+</pre>
+            <h3>Providing an address.</h3>
+            <p>The Simple Map Plugin offers two main ways of passing in an address to be geocoded and placed on a map. The recommended method is to provide a <code>data-sm_address="<i>address to be geocoded</i>"</code> on the element you are invoking the plugin on.</p>
+<pre>
+    <code class="codeSample" data-language="markup">
+<button data-sm_address="1301 N Summit St, Toledo, Ohio">
+    View Map
+</button>
+    </code>
+</pre>
+            <p>Alternatively, You can pass an option to the plugin by assigning an address to <code>options.address</code>. If the address is already provided in the data attribute like in the above example, then that address will be used. This way, you can use this option to provide the plugin with a default address.</p>
+<pre>
+    <code class="codeSample" data-language="javascript">
+$('button').simpleMap({
+    theAddress: "1301 N Summit St, Toledo, Ohio",
+    mapElementId: 'your-map-element-id'
+});
+    </code>
+</pre>
+            <h2>Using the overlay.</h2>
+            <p>The Simple Map Plugin comes with a built-in overlay you can use to display the map. When using the built-in overlay, you do not need to provide <code>options.mapElementId</code></p>
+            <p>Set the <code>options.useOverlay</code> to true.</p>	
+<pre>
+    <code class="codeSample" data-language="javascript">
+$('button').simpleMap({
+    useOverlay: true
+});
+    </code>
+</pre>
+            <h2>Autoloading the map.</h2>
+            <p>Although the plugin is designed for user input, it can be self invoked on an element and load within that element automatically. You do not need to provide <code>options.mapElementId</code> when auto loading the map.</p>
+<pre>
+    <code class="codeSample" data-language="javascript">
+$('#my-map-container').simpleMap({
+    autoLoad: true
+});
+    </code>
+</pre>
+            <h2>Ethos</h2>
+            <p>The Simple Map Plugin is designed to only load assets and draw maps if the user requests it. When a user clicks on the invoked element, the plugin will then load the Google Maps API and draw the map. If the user never requests a map, then the API never loads, and the plugin is merely invoked and ready for user input.</p>
+            <h3>Google Maps API Handling</h3>
+            <p>The plugin will load the Google Maps Javascript API for you. If the Google Maps API is already loaded, or if it is loaded by other means, you can turn the API loading off by passing <code>options.isApiLoaded</code> to true. This will bypass the loading of the API.</p>
+            <p>The plugin keeps track of whether the API is loaded, so no worries if you have multiple targets on one page.</p>
+<pre>
+    <code class="codeSample" data-language="javascript">
+$('button').simpleMap({
+    mapElementId: 'your-map-element-id',
+    isApiLoaded: true
+});
+    </code>
+</pre>
+            <h3>Google Maps Passthrough Options</h3>
+            <p>This plugin is meant to be quick and simple, so only a few Google Maps options are available for passthrough. Refer to the <a href="https://developers.google.com/maps/documentation/javascript/reference">Google Map Javascript API Reference</a> for possible values.</p>
+            <h4>Map Options</h4>
+<pre>
+    <code class="codeSample" data-language="javascript">
+mapSetup: { //some basic Google Maps options
+    scrollwheel: true, //bool: enable disable scroll zooming on mousewheel
+    streetViewControl: false,//bool: enable street view controls UI
+    panControl: false, //bool: enable the pan controls UI
+    zoom: 10, //int: the map zoom level
+}
+    </code>
+</pre>
+            <h4>Map Marker Options</h4>
+<pre>
+    <code class="codeSample" data-language="javascript">
+markerConfig : {
+    title: null, //string: the title of the marker as a string
+    icon: null //string: the URL of the marker icon as a string
+}
+    </code>
+</pre>
+            <h4>Infowindow Options</h4>
+            <p>Note: The infowindow will only be applied if there is a value available for <code>html</code>
+<pre>
+    <code class="codeSample" data-language="javascript">
+infoWindowConfig: {
+    autoShow: false, //bool: auto show the map info window
+    maxWidth: 240, //int: set the info window max width
+    html: null//string or $(element).html(): The HTML to display in the info window
+}
+    </code>
+</pre>
+            <h3>Coming Soon</h3>
+            <p>The plan is to also include the following features:</p>
+            <ol>
+                <li>The ability to bypass geocoding and provide latitude and longitude directly.</li>
+                <li>Although an advanced use case, if highly desired, the ability to add a set of addresses to a single map will be considered.</li>
+            </ol>
+        </div>
+        <div class="five columns sidebar">
+            <nav>
+                <ul id="sidemenu"></ul>
+            </nav>
+        </div>
+    </div>
+</article>
