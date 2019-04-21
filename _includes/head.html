@@ -13,13 +13,6 @@
 <link rel="canonical" href="{{ site.github.url | append: page.url | replace:'index.html','' | absolute_url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ site.github.url | append:"/feed.xml" }}">
 <link rel="shortcut icon" href="{{ site.github.url | append:"/assets/img/favicon.png" }}" type="image/x-icon">
-<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:400,300,600">
-<link rel="stylesheet" href="/bl-themes/sgm/assets/css/normalize.css">
-<link rel="stylesheet" href="/bl-themes/sgm/assets/css/skeleton.css">
-<link rel="stylesheet" href="/bl-themes/sgm/assets/css/prism.css">
-<link rel="stylesheet" href="/bl-themes/sgm/assets/css/demo.css"> -->
-<!-- <link rel="stylesheet" href="jquery-sm-style.css"> -->
-<!-- <link rel="stylesheet" href="/bl-kernel/admin/themes/default/css/font-awesome.min.css"> -->
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
@@ -29,18 +22,15 @@
 <meta property="og:url" content="{{ site.github.url | append: page.url | absolute_url }}">
 <meta property="og:siteName" content="jQuery Simple Google Maps">
 <meta property="og:image" content="http://sgm.ramihassan.net/bl-content/uploads/sgm.png">
-
 <!-- Twitter Card -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:site" content="@realramchilla">
 <meta property="twitter:creator" content="@realramchilla">
-<meta property="twitter:title" content="Home | jQuery Simple Google Maps">
-<meta property="twitter:description" content="jQuery Simple Map is a lightweight jQuery Plugin that easily and quickly implements a simple Google Map on your website.">
 <meta property="twitter:image" content="http://sgm.ramihassan.net/bl-content/uploads/sgm.png">
 
 {% if page.load_sgm %}
-<script src="{{ site.github.url | append: "/assets/js/jquery/jquery.js" | relative_url }}"></script>
-<script>var $ = jQuery;</script>
+<!-- <script src="{{ site.github.url | append: "/assets/js/jquery/jquery.js" | relative_url }}"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="{{ site.github.url }}/simple-google-maps/jquery.simpleMap.js"></script>
 <script>$.fn.simpleMap.defaults.googleApiKey = 'AIzaSyD1YrMciwwLqv0jdVt8-oTMhEhuIh9dh_0';</script>
 {% endif %}
