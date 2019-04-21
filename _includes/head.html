@@ -35,7 +35,7 @@
     <script>$.fn.simpleMap.defaults.googleApiKey = 'AIzaSyD1YrMciwwLqv0jdVt8-oTMhEhuIh9dh_0';</script>
     {%- endif -%}
 
-    {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include ga.html -%}
-    {% endif %}
+{% if jekyll.environment != 'production' and site.google_analytics %}
+{% include analytics.html %}
+{% endif %}
 </head>
