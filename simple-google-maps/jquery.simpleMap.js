@@ -1,5 +1,5 @@
 /*
- *  jQuery Simple Map - v1.0
+ *  jQuery Simple Map - v0.9
  *  A simple Google Maps jQuery plugin.
  *  Made by ramchilla - http://sgm.ramihassan.net
  *  Under WTFPL License - http://www.wtfpl.net/
