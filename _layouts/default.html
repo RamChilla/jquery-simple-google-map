@@ -7,14 +7,14 @@
         <div class="container">
             <nav class="row nav">
                 <div class="four columns logo">
-                    <a href="{{ site.github.url }}">{{ site.title }}</a>
+                    <a href="{{ site.github.url | relative_url }}">{{ site.title }}</a>
                 </div>
                 <div class="eight columns text-right">
                     <ul>
                         {% assign pages = site.pages | sort: 'menuSort'  %}
                         {% for doc in pages %}
                         {% if doc.menuTitle %}
-                        <li><a href="{{ site.github.url | append: doc.url }}">{{ doc.menuTitle }}</a></li>
+                        <li><a href="{{ site.github.url | append: doc.url | relative_url }}">{{ doc.menuTitle }}</a></li>
                         {% endif %}
                         {% endfor %}
                     </ul>

@@ -8,8 +8,8 @@
 <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 145 | escape }}">
 <style>{{ styles | scssify }}</style>
-<link rel="preload" href="{{ site.github.url | append:"/assets/css/site.css" }}" as="style" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ site.github.url | append:"/assets/css/site.css" }}"></noscript>
+<link rel="preload" href="{{ site.github.url | append:"/assets/css/site.css" | relative_url }}" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ site.github.url | append:"/assets/css/site.css" | relative_url  }}"></noscript>
 <link rel="canonical" href="{{ site.github.url | append: page.url | replace:'index.html','' | absolute_url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ site.github.url | append:"/feed.xml" }}">
 <link rel="shortcut icon" href="{{ site.github.url | append:"/assets/img/favicon.png" }}" type="image/x-icon">
