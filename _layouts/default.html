@@ -24,8 +24,6 @@
     </header>
 
     {{ content }}
-    {{ site.baseurl }}
-    {{ site.github.url }}
 
     <footer class="row-dark">
         <div class="container">
@@ -43,7 +41,7 @@
     </footer>
 
     {% unless page.load_sgm %}
-    <script src="{{ "/assets/js/jquery/jquery.js" | relative_url }}"></script>
+    <script src="{{ site.github.url | append:"/assets/js/jquery/jquery.js" | relative_url }}"></script>
     <script>var $ = jQuery;</script>
     {% endunless %}
 
