@@ -24,7 +24,7 @@ url: "https://ramchilla.github.io" # the base hostname & protocol for your site,
 #github_username:  Ramchilla
 permalink: /post/:categories/:title/
 excerpt_separator: ""
-google_analytics: UA-31875443-3
+google_analytics: UA-31875443-2
 # Build settings
 repository: ramchilla/jquery-simple-maps
 markdown: kramdown
