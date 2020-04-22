@@ -1,4 +1,4 @@
-[
+var AssassinsCreedIVStyles = [
     {
     "featureType": "all",
     "elementType": "all",
