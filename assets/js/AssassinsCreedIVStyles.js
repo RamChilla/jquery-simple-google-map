@@ -1,3 +1,4 @@
+// Map styles by Sarah Frisk - https://snazzymaps.com/style/72543/assassins-creed-iv
 var AssassinsCreedIVStyles = [
     {
     "featureType": "all",
