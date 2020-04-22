@@ -39,160 +39,7 @@ load_sgm: true
 				html: '<h5>jQuery Simple Map<\/h5><p>For simple and quick Google Maps<\/p>'
 			}
 		});
-	});
-		</script>
-
-		<div class="row seeTheCode">
-			<pre>
-				<code></code>
-			</pre>
-		</div>
-	</section>
-
-	<section>
-		<div class="row demo-row">
-			<div class="seven columns">
-				<h2>On a "Need to Load" basis.</h2>
-				<p>jQuery Simple Map only loads map assets and geocodes by request. Designed to <strong>trigger based on click events</strong>, jQuery Simple Map is perfect for optionally showing a single location to your website's visitors. Load a map in a pre-existing element or load one in the built in overlay.</p>
-				<button id="needToLoadTrig" data-sm_address="New York City">Load a Map</button>
-				<button id="needToLoadOverlayTrig" data-sm_address="Atlantic City, NJ">Load in Overlay</button>
-				<div><code class="seeCode" data-section="needToLoad">See Demo Code</code></div>
-			</div>
-			<div id="needToLoad" class="five columns sample-map">
-				<i class="fa fa-map placeholder"></i>
-			</div>
-		</div>
-
-		<script data-type="demo">
-	$(document).ready( function() {
-		//load example to specified element via id
-		$('#needToLoadTrig').simpleMap({
-			mapElementId: 'needToLoad'
-		});
-		//Use tbe built-in overlay
-		$('#needToLoadOverlayTrig').simpleMap({
-			useOverlay: true,
-			infoWindowConfig: {
-				autoShow: true,
-				html: "<h5>Built in Overlay<\/h5><p>Plugin comes with it's own overlay. Classes conveniently provided for your styling needs.<\/p>"
-			}
-		});
-	});
-		</script>
-
-		<div class="row seeTheCode">
-			<pre>
-				<code></code>
-			</pre>
-		</div>
-	</section>
-
-	<section>
-		<div class="row demo-row">
-			<div class="seven columns">
-				<h2>Draw maps to the same element.</h2>
-				<p>Since you can declare where the map renders, you can list multiple locations and draw the map to the same element.</p>
-				<button class="sm-trigger" data-sm_address="New York City, NY">New York</button>
-				<button class="sm-trigger" data-sm_address="Los Angeles, CA">Los Angeles</button>
-				<button class="sm-trigger" data-sm_address="Chicago, IL">Chicago</button>
-				<button class="sm-trigger" data-sm_address="Detroit, MI">Detroit</button>
-				<div><code class="seeCode" data-section="sameElement">See Demo Code</code></div>
-			</div>
-			<div id="auxMap" class="five columns sample-map">
-				<i class="fa fa-map placeholder"></i>
-			</div>
-		</div>
-
-		<script data-type="demo">
-	$(document).ready( function() {
-		//Same Element
-		$('.sm-trigger').simpleMap({
-			mapElementId: "auxMap",
-			mapSetup: {
-				zoom: 10,
-				streetViewControl: true,
-				panControl:true
-			}
-		});
-	});
-		</script>
-
-		<div class="row seeTheCode">
-			<pre>
-				<code></code>
-			</pre>
-		</div>
-	</section>
-
-	<section>
-		<div class="row demo-row">
-			<div class="seven columns">
-				<h2>Set custom Info Window content.</h2>
-				<p>Just provide some HTML to the plugin to use in the map marker's info window. You can return the html from any element on the page or explicitly provide an HTML string.</p>
-				<button id="setInfoWindowTrig" data-sm_address="Denver, Colorado">With Info Window</button>
-				<div><code class="seeCode" data-section="customInfoWindow">See Demo Code</code></div>
-				<div id="setInfoWindowContent" style="display:none;background-color:#EEE;padding:0.8rem;">
-					<p contenteditable="">You can use any HTML and pass it to the plugin for use in the information window.</p>
-					<button class="button-primary showHiddenContent">Show Used Element</button>
-				</div>
-			</div>
-			<div id="setInfoContent" class="five columns sample-map">
-				<i class="fa fa-map placeholder"></i>
-			</div>
-		</div>
-
-		<script data-type="demo">
-	$(document).ready( function() {
-		//Set info-window
-		$('#setInfoWindowTrig').simpleMap({
-			mapElementId: 'setInfoContent',
-			infoWindowConfig: {
-				autoShow: true,
-				html: $('#setInfoWindowContent').html()
-			}
-		});
-		//Handler for showing where the info content came from, for demo purposes
-		$('body').one('click', '.showHiddenContent', function(){
-			$('#setInfoWindowContent').fadeIn();
-		});
-	});
-		</script>
-
-		<div class="row seeTheCode">
-			<pre>
-				<code></code>
-			</pre>
-		</div>
-	</section>
-
-	<section>
-		<div class="row demo-row">
-			<div class="seven columns">
-				<div class="infoWindowContent">
-					<h2>Set a custom map marker.</h2>
-					<p>You can set your own map marker icon by providing the URL of your map marker file.</p>
-					<button id="showCustomMarker" data-sm_address="Toledo, Ohio">Custom Marker</button>
-					<div><code class="seeCode" data-section="customMarker">See Demo Code</code></div>
-				</div>
-			</div>
-			<div id="setCustomMarker" class="five columns sample-map">
-				<i class="fa fa-map placeholder"></i>
-			</div>
-		</div>
-
-		<script data-type="demo">
-	$(document).ready( function() {
-		//Set custom marker
-		window.testMapTwo = $('#showCustomMarker').simpleMap({
-			mapElementId: 'setCustomMarker',
-			markerConfig: {
-				icon: 'assets/img/map-marker.png'
-			},
-			infoWindowConfig: {
-				html: '<h5>It\'s where the <i class="fa fa-heart"><\/i> is.<\/h5>'
-			}
-		});
-		testMapTwo.data('plugin_simpleMap').map.setOptions({
+		testMap.data('plugin_simpleMap').map.setOptions({
 			styles: [
     {
         "featureType": "all",
@@ -558,6 +405,159 @@ load_sgm: true
         ]
     }
 ]
+		});
+	});
+		</script>
+
+		<div class="row seeTheCode">
+			<pre>
+				<code></code>
+			</pre>
+		</div>
+	</section>
+
+	<section>
+		<div class="row demo-row">
+			<div class="seven columns">
+				<h2>On a "Need to Load" basis.</h2>
+				<p>jQuery Simple Map only loads map assets and geocodes by request. Designed to <strong>trigger based on click events</strong>, jQuery Simple Map is perfect for optionally showing a single location to your website's visitors. Load a map in a pre-existing element or load one in the built in overlay.</p>
+				<button id="needToLoadTrig" data-sm_address="New York City">Load a Map</button>
+				<button id="needToLoadOverlayTrig" data-sm_address="Atlantic City, NJ">Load in Overlay</button>
+				<div><code class="seeCode" data-section="needToLoad">See Demo Code</code></div>
+			</div>
+			<div id="needToLoad" class="five columns sample-map">
+				<i class="fa fa-map placeholder"></i>
+			</div>
+		</div>
+
+		<script data-type="demo">
+	$(document).ready( function() {
+		//load example to specified element via id
+		$('#needToLoadTrig').simpleMap({
+			mapElementId: 'needToLoad'
+		});
+		//Use tbe built-in overlay
+		$('#needToLoadOverlayTrig').simpleMap({
+			useOverlay: true,
+			infoWindowConfig: {
+				autoShow: true,
+				html: "<h5>Built in Overlay<\/h5><p>Plugin comes with it's own overlay. Classes conveniently provided for your styling needs.<\/p>"
+			}
+		});
+	});
+		</script>
+
+		<div class="row seeTheCode">
+			<pre>
+				<code></code>
+			</pre>
+		</div>
+	</section>
+
+	<section>
+		<div class="row demo-row">
+			<div class="seven columns">
+				<h2>Draw maps to the same element.</h2>
+				<p>Since you can declare where the map renders, you can list multiple locations and draw the map to the same element.</p>
+				<button class="sm-trigger" data-sm_address="New York City, NY">New York</button>
+				<button class="sm-trigger" data-sm_address="Los Angeles, CA">Los Angeles</button>
+				<button class="sm-trigger" data-sm_address="Chicago, IL">Chicago</button>
+				<button class="sm-trigger" data-sm_address="Detroit, MI">Detroit</button>
+				<div><code class="seeCode" data-section="sameElement">See Demo Code</code></div>
+			</div>
+			<div id="auxMap" class="five columns sample-map">
+				<i class="fa fa-map placeholder"></i>
+			</div>
+		</div>
+
+		<script data-type="demo">
+	$(document).ready( function() {
+		//Same Element
+		$('.sm-trigger').simpleMap({
+			mapElementId: "auxMap",
+			mapSetup: {
+				zoom: 10,
+				streetViewControl: true,
+				panControl:true
+			}
+		});
+	});
+		</script>
+
+		<div class="row seeTheCode">
+			<pre>
+				<code></code>
+			</pre>
+		</div>
+	</section>
+
+	<section>
+		<div class="row demo-row">
+			<div class="seven columns">
+				<h2>Set custom Info Window content.</h2>
+				<p>Just provide some HTML to the plugin to use in the map marker's info window. You can return the html from any element on the page or explicitly provide an HTML string.</p>
+				<button id="setInfoWindowTrig" data-sm_address="Denver, Colorado">With Info Window</button>
+				<div><code class="seeCode" data-section="customInfoWindow">See Demo Code</code></div>
+				<div id="setInfoWindowContent" style="display:none;background-color:#EEE;padding:0.8rem;">
+					<p contenteditable="">You can use any HTML and pass it to the plugin for use in the information window.</p>
+					<button class="button-primary showHiddenContent">Show Used Element</button>
+				</div>
+			</div>
+			<div id="setInfoContent" class="five columns sample-map">
+				<i class="fa fa-map placeholder"></i>
+			</div>
+		</div>
+
+		<script data-type="demo">
+	$(document).ready( function() {
+		//Set info-window
+		$('#setInfoWindowTrig').simpleMap({
+			mapElementId: 'setInfoContent',
+			infoWindowConfig: {
+				autoShow: true,
+				html: $('#setInfoWindowContent').html()
+			}
+		});
+		//Handler for showing where the info content came from, for demo purposes
+		$('body').one('click', '.showHiddenContent', function(){
+			$('#setInfoWindowContent').fadeIn();
+		});
+	});
+		</script>
+
+		<div class="row seeTheCode">
+			<pre>
+				<code></code>
+			</pre>
+		</div>
+	</section>
+
+	<section>
+		<div class="row demo-row">
+			<div class="seven columns">
+				<div class="infoWindowContent">
+					<h2>Set a custom map marker.</h2>
+					<p>You can set your own map marker icon by providing the URL of your map marker file.</p>
+					<button id="showCustomMarker" data-sm_address="Toledo, Ohio">Custom Marker</button>
+					<div><code class="seeCode" data-section="customMarker">See Demo Code</code></div>
+				</div>
+			</div>
+			<div id="setCustomMarker" class="five columns sample-map">
+				<i class="fa fa-map placeholder"></i>
+			</div>
+		</div>
+
+		<script data-type="demo">
+	$(document).ready( function() {
+		//Set custom marker
+		$('#showCustomMarker').simpleMap({
+			mapElementId: 'setCustomMarker',
+			markerConfig: {
+				icon: 'assets/img/map-marker.png'
+			},
+			infoWindowConfig: {
+				html: '<h5>It\'s where the <i class="fa fa-heart"><\/i> is.<\/h5>'
+			}
 		});
 	});
 		</script>
